@@ -14,6 +14,7 @@ import com.staf.common.constants.DataConstants;
 import com.staf.common.constants.ObjectConstants;
 import com.staf.controls.Div;
 import com.staf.controls.Frame;
+import com.staf.controls.Span;
 import com.staf.model.Page;
 import com.staf.reader.ConfigReader;
 import com.staf.reader.ExcelReader;
@@ -71,6 +72,15 @@ public class PG_02_Content extends Page {
 	public void clickContentBox4() throws IOException, InterruptedException{
 		Div.click(this.getPageObjectsMap().get(ObjectConstants.PG_02_ContentBox4));
 	}
-
+	
+	public void clickInitiationPhase() throws IOException, InterruptedException{
+		Span.click(this.getPageObjectsMap().get(ObjectConstants.PG_02_initiationphase));
+	}
+	
+	public void clickPlanningPhase() throws IOException, InterruptedException{
+		Span.click(this.getPageObjectsMap().get(ObjectConstants.PG_02_planningphase));
+	}
+	
+	
 	
 }

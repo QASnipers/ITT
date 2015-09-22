@@ -27,6 +27,8 @@ public interface ObjectConstants {
 	public String PG_02_ContentBox2 = "contentbox2";
 	public String PG_02_ContentBox3 = "contentbox3";
 	public String PG_02_ContentBox4 = "contentbox4";
+	public String PG_02_initiationphase = "initiationphase";
+	public String PG_02_planningphase = "planningphase";
 	public String PG_03_Next = "next";
 
 

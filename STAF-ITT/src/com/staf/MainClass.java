@@ -57,72 +57,58 @@ public class MainClass  {
 			WebElement elementMenu = Browser.driver.findElement(By.id("menu")); 
 			WebElement elemContent = Browser.driver.findElement(By.id("content"));
 			
+			//Clicking Reading and verifying content
 			Browser.driver.switchTo().frame(elementMenu);
 			app.PG_01_LessonMenu.clickReadings();
 			Browser.driver.switchTo().defaultContent();
-			
-
 			Browser.driver.switchTo().frame(elemContent);
-			
 			app.PG_02_Content.verifyText(app.PG_02_Content.getData().get(DataConstants.PG_02_Reading_Content)[currentRow]);
-			
 			Browser.driver.switchTo().defaultContent();
 			
 			//Clicking and verifying Introduction Overview
 			Browser.driver.switchTo().frame(elementMenu);
-			
 			app.PG_01_LessonMenu.clickIntroductionOverview();
-			
 			Browser.driver.switchTo().defaultContent();
-			
 			Browser.driver.switchTo().frame(elemContent);
-			
 			app.PG_02_Content.verifyText(app.PG_02_Content.getData().get(DataConstants.PG_02_Overview_Content1)[currentRow]);
-			
 			app.PG_02_Content.verifyText(app.PG_02_Content.getData().get(DataConstants.PG_02_Overview_Content2)[currentRow]);
-
 			Browser.driver.switchTo().defaultContent();
 			
+
 			//Clicking and verifying Introduction Projects
-			
 			Browser.driver.switchTo().frame(elementMenu);
-			
 			app.PG_01_LessonMenu.clickIntroductionProject();
-			
 			Browser.driver.switchTo().defaultContent();
-			
 			Browser.driver.switchTo().frame(elemContent);
-			
 			app.PG_02_Content.verifyText(app.PG_02_Content.getData().get(DataConstants.PG_02_IntroProject_Content)[currentRow]);
-
 			Browser.driver.switchTo().defaultContent();
 
 			//Clicking and verifying Importance Projects
-			
 			Browser.driver.switchTo().frame(elementMenu);
-			
 			app.PG_01_LessonMenu.clickImportanceProject();
-			
 			Browser.driver.switchTo().defaultContent();
-			
 			Browser.driver.switchTo().frame(elemContent);
-			
 			app.PG_02_Content.clickContentBox1();
-			
 			app.PG_02_Content.verifyText(app.PG_02_Content.getData().get(DataConstants.PG_02_Importance_Project_Uniformity_Content)[currentRow]);
-
 			app.PG_02_Content.clickContentBox2();
-			
 			app.PG_02_Content.verifyText(app.PG_02_Content.getData().get(DataConstants.PG_02_Importance_Project_Audience_Content)[currentRow]);
 
 			app.PG_02_Content.clickContentBox3();
-			
 			app.PG_02_Content.verifyText(app.PG_02_Content.getData().get(DataConstants.PG_02_Importance_Project_Backtracking_Content)[currentRow]);
 
 			app.PG_02_Content.clickContentBox4();
-			
 			app.PG_02_Content.verifyText(app.PG_02_Content.getData().get(DataConstants.PG_02_Importance_Project_Replacement_Content)[currentRow]);
-			
+			Browser.driver.switchTo().defaultContent();
+
+			//Clicking Project documents and verifying content
+			Browser.driver.switchTo().frame(elementMenu);
+			app.PG_01_LessonMenu.clickProjectDocuments();;
+			Browser.driver.switchTo().defaultContent();
+			Browser.driver.switchTo().frame(elemContent);
+			app.PG_02_Content.clickInitiationPhase();
+			app.PG_02_Content.verifyText("The business case captures the reasons for launching the project.");
+			app.PG_02_Content.clickPlanningPhase();
+			Browser.driver.switchTo().defaultContent();			
 			
 		}
 		Browser.quit();
