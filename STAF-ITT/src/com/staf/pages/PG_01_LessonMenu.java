@@ -40,19 +40,78 @@ public class PG_01_LessonMenu extends Page{
 	
 	public void clickCourseIntroduction() throws IOException, InterruptedException{
 		Span.click(this.getPageObjectsMap().get(ObjectConstants.PG_01_CourseIntroduction));
-		Browser.captureScreen("Clicked " + this.getPageObjectsMap().get(ObjectConstants.PG_01_CourseIntroduction).getObjectName() );
 	}
 	
 	public void clickReadings() throws IOException, InterruptedException{
 		Span.click(this.getPageObjectsMap().get(ObjectConstants.PG_01_Readings));
-		Browser.captureScreen("Clicked " + this.getPageObjectsMap().get(ObjectConstants.PG_01_Readings).getObjectName() );
 	}
 	
 	public void clickIntroductionOverview() throws IOException, InterruptedException{
 		Span.click(this.getPageObjectsMap().get(ObjectConstants.PG_01_IntroductionandOverview));
-		Browser.captureScreen("Clicked " + this.getPageObjectsMap().get(ObjectConstants.PG_01_IntroductionandOverview).getObjectName() );
 	}
 	
-	
+	public void clickIntroductionProject() throws IOException, InterruptedException{
+		Span.click(this.getPageObjectsMap().get(ObjectConstants.PG_01_IntroductionProject));
+	}	
 
+	public void clickImportanceProject() throws IOException, InterruptedException{
+		Span.click(this.getPageObjectsMap().get(ObjectConstants.PG_01_ImportanceOfProjectDocumentation));
+	}	
+
+	public void clickProjectManagement() throws IOException, InterruptedException{
+		Span.click(this.getPageObjectsMap().get(ObjectConstants.PG_01_ProjectManagementPhases));
+	}	
+
+	public void clickProjectDocuments() throws IOException, InterruptedException{
+		Span.click(this.getPageObjectsMap().get(ObjectConstants.PG_01_ProjectDocuments));
+	}
+	
+	public void clickProjectConcept() throws IOException, InterruptedException{
+		Span.click(this.getPageObjectsMap().get(ObjectConstants.PG_01_ProjectConcept));
+	}
+
+	public void clickOutLine() throws IOException, InterruptedException{
+		Span.click(this.getPageObjectsMap().get(ObjectConstants.PG_01_Outline));
+	}	
+
+	public void clickBackground() throws IOException, InterruptedException{
+		Span.click(this.getPageObjectsMap().get(ObjectConstants.PG_01_Background));
+	}
+	
+	public void clickChallenge() throws IOException, InterruptedException{
+		Span.click(this.getPageObjectsMap().get(ObjectConstants.PG_01_Challenge));
+	}
+	
+	public void clickSuggestedSolution() throws IOException, InterruptedException{
+		Span.click(this.getPageObjectsMap().get(ObjectConstants.PG_01_SuggestedSolution));
+	}
+	
+	public void clickMSPOverview() throws IOException, InterruptedException{
+		Span.click(this.getPageObjectsMap().get(ObjectConstants.PG_01_MicrosoftProject));
+	}
+	
+	public void clickProjectGuide() throws IOException, InterruptedException{
+		Span.click(this.getPageObjectsMap().get(ObjectConstants.PG_01_ProjectGuide));
+	}
+	
+	public void clickFrequentlyUsedViews() throws IOException, InterruptedException{
+		Span.click(this.getPageObjectsMap().get(ObjectConstants.PG_01_FequentlyUsedViews));
+	}
+	
+	public void clickGantChart() throws IOException, InterruptedException{
+		Span.click(this.getPageObjectsMap().get(ObjectConstants.PG_01_GanttChart));
+	}
+	
+	public void clickResourceAndCostSheet() throws IOException, InterruptedException{
+		Span.click(this.getPageObjectsMap().get(ObjectConstants.PG_01_ResourceAndCostSheet));
+	}
+	
+	public void clickProjectIntroduction() throws IOException, InterruptedException{
+		Span.click(this.getPageObjectsMap().get(ObjectConstants.PG_01_ProjectIntroduction));
+	}
+	
+	public void clickSummary() throws IOException, InterruptedException{
+		Span.click(this.getPageObjectsMap().get(ObjectConstants.PG_01_Summary));
+	}
+	
 }

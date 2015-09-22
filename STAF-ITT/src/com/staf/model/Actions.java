@@ -1,5 +1,6 @@
 package com.staf.model;
 
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -7,6 +8,7 @@ import org.apache.log4j.Logger;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 
+import com.relevantcodes.extentreports.LogStatus;
 import com.staf.common.*;
 
 public class Actions {
@@ -109,12 +111,13 @@ public class Actions {
 	}
 
 	//Clicks an object
-	public static void click(UIObject obj) {
+	public static void click(UIObject obj) throws IOException, InterruptedException {
 		WebElement element = action(obj);
 		if(element!=null){
 			element.click();
-			log.info("Clicked "+element.getText());
-		}
+			log.info("Clicked "+obj.getObjectName());
+			Browser.captureScreen("Clicked "+obj.getObjectName());
+			Browser.report.log(LogStatus.INFO, "Clicked "+obj.getObjectName());		}
 	}
 	
 	// Verify visibility of an object

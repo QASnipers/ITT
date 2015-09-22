@@ -18,7 +18,10 @@ import org.openqa.selenium.firefox.FirefoxDriver;
 import org.openqa.selenium.ie.InternetExplorerDriver;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
+import org.testng.annotations.BeforeClass;
 
+import com.relevantcodes.extentreports.ExtentReports;
+import com.relevantcodes.extentreports.ExtentTest;
 import com.staf.model.UIObject;
 import com.staf.reader.ConfigReader;
 
@@ -27,8 +30,24 @@ public class Browser {
 	public static WebDriver driver;
 	public static WebDriverWait wait;
 	static Logger log=Logger.getLogger(Browser.class.getClass());
+	public static ExtentReports extent;
+	public static ExtentTest report; 
+	
 	private static int i =0;
-
+	
+	public static ExtentReports Instance()
+    {
+		ExtentReports extent;
+		
+		String Path = ConfigReader.getInstance().getReportsPath()+"ExecutionReport.html";
+		extent = new ExtentReports(Path, true);
+		extent.config()
+		           .documentTitle("Automation Report")
+		           .reportName("Regression");
+		
+		return extent;
+    }
+	
 	public static void launchBrowser(String type, String appurl){
 		if (type.equalsIgnoreCase("FF")){
 			driver = new FirefoxDriver();
@@ -129,12 +148,13 @@ public class Browser {
 		String v = String.format("%1$tm%1$te%1$tY", c);
 		Thread.sleep(1000);
 		File src=((TakesScreenshot)driver).getScreenshotAs(OutputType.FILE);
-		String path="D:\\ITT\\Screenshots\\"+ConfigReader.getInstance().getTestCaseName()+"\\" +v+"\\"+i+"_"+s+".png";
+		String path=ConfigReader.getInstance().getScreenshotpath()+ConfigReader.getInstance().getTestCaseName()+"\\" +v+"\\"+i+"_"+s+".png";
 		FileUtils.copyFile(src, new File(path));
 		log.info(s);
 		i = i+1;
 	}
 	
+
 	public static void switchToFrame(WebElement frame){
 		driver.switchTo().frame(frame);
 //		System.out.println(frame.getAttribute("id"));

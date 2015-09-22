@@ -6,6 +6,7 @@ public interface ObjectConstants {
 	public String PG_01_CourseIntroduction = "courseintroduction";
 	public String PG_01_Readings = "Readings";
 	public String PG_01_IntroductionandOverview = "IntroductionandOverview";
+	public String PG_01_IntroductionProject = "IntroductionProject";
 	public String PG_01_ImportanceOfProjectDocumentation = "ImportanceOfProjectDocumentation";
 	public String PG_01_ProjectManagementPhases = "ProjectManagementPhases";
 	public String PG_01_ProjectDocuments = "ProjectDocuments";
@@ -22,5 +23,11 @@ public interface ObjectConstants {
 	public String PG_01_ProjectIntroduction = "ProjectIntroduction";
 	public String PG_01_Summary = "Summary";
 	public String PG_02_Content = "content";
+	public String PG_02_ContentBox1 = "contentbox1";
+	public String PG_02_ContentBox2 = "contentbox2";
+	public String PG_02_ContentBox3 = "contentbox3";
+	public String PG_02_ContentBox4 = "contentbox4";
+
+
 
 }

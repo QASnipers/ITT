@@ -17,6 +17,8 @@ public class ConfigReader {
 	private int dataRowsCount;
 	private int dataCurrentRow;
 	private String testCaseName;
+	private String screenshotpath;
+	private String reportspath;
 	
 	public String getTestDataFilesPath() {
 		return testDataFilesPath;
@@ -75,6 +77,21 @@ public class ConfigReader {
 	public void setEnvironment(String environment) {
 		this.environment = environment;
 	}
+
+	public String getScreenshotpath() {
+		return screenshotpath;
+	}
+	public void setScreenshotpath(String screenshotpath) {
+		this.screenshotpath = screenshotpath;
+	}
+	
+	public String getReportsPath() {
+		return reportspath;
+	}
+	public void setReportsPath(String reportspath) {
+		this.reportspath = reportspath;
+	}
+	
 	//TODO : read from class path
 	public void readConfiguration() throws IOException {
 		Properties properties = new Properties();
@@ -96,6 +113,8 @@ public class ConfigReader {
 		this.setDataRowsCount(Integer.parseInt(properties.getProperty("DATA_ROWS_COUNT")));
 		this.setDataCurrentRow(Integer.parseInt(properties.getProperty("DATA_CURRENT_ROW")));
 		this.setTestCaseName(properties.getProperty("TEST_CASE_NAME"));
+		this.setScreenshotpath(properties.getProperty("SCREENSHOT_PATH"));
+		this.setReportsPath(properties.getProperty("REPORTS"));
 	}
 	
 	public static ConfigReader getInstance() {
