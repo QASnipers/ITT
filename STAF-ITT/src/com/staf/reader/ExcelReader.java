@@ -22,6 +22,7 @@ public class ExcelReader {
 		Sheet sheet = null;
 		try{
 		      Workbook workbook = Workbook.getWorkbook(new File(testDataFile));
+
 		      sheet = workbook.getSheet(sheetName);
 				if(sheet != null){
 					rowCount = sheet.getRows();
@@ -104,9 +105,11 @@ public class ExcelReader {
 		  int colCount = 0;
 		  int i =0;
 		  List <String> colContent = new ArrayList<String>();
-		  String testDataFile = ConfigReader.getInstance().getTestDataFilesPath()+ConfigReader.getInstance().getTestCaseName()+".xls";
+		  //String testDataFile = ConfigReader.getInstance().getTestDataFilesPath()+ConfigReader.getInstance().getTestCaseName()+".xls";
+		  String testDataFile = ConfigReader.getInstance().getTestDataFilesPath();
 		  log.info("Test Data File: " +testDataFile);
-		  String sheetName = ConfigReader.getInstance().getEnvironment();
+		  String sheetName = ConfigReader.getInstance().getTestCaseName();
+		  //System.out.println(sheetName);
 
 		  //This object is returned
 		  Map<String, String[]> dataSet = new HashMap<String, String[]>();

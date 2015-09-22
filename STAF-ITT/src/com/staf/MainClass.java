@@ -37,13 +37,13 @@ public class MainClass  {
 	 }	 
 	
 	@Test
-	public void clickLeftPaneLinksAndVerifyContent() throws Exception{
+	public void LeftPanelLinksContentVerify() throws Exception{
 		
 		//ConfigReader.getInstance().readConfiguration();
 		Browser.report = extent.startTest("Left Panel Links", "Click Left Panel Links and verify its content");
 		String methodname = new Object(){}.getClass().getEnclosingMethod().getName();
-		System.out.println(methodname);
-		ConfigReader.getInstance().setTestCaseName("MainClass");
+
+		ConfigReader.getInstance().setTestCaseName(methodname);
 		
 		Application app = new Application();
 		Browser.launchBrowser(ConfigReader.getInstance().getBrowserType(), ConfigReader.getInstance().getUrl());
@@ -130,6 +130,95 @@ public class MainClass  {
 	
 	@Test
 	public void clickNextAndVerifyContent() throws Exception{
+		//ConfigReader.getInstance().readConfiguration();
+		Browser.report = extent.startTest("Navigation through bottom next", "Click bottom next Link and verify its content");
+		String methodname = new Object(){}.getClass().getEnclosingMethod().getName();
+		//System.out.println(methodname);
+		ConfigReader.getInstance().setTestCaseName(methodname);
+		
+		Application app = new Application();
+		Browser.launchBrowser(ConfigReader.getInstance().getBrowserType(), ConfigReader.getInstance().getUrl());
+		Browser.maximize();
+				
+		ConfigReader.getInstance().setDataRowsCount(0);
+		
+		for(int currentRow=0; currentRow<=ConfigReader.getInstance().getDataRowsCount(); currentRow++){
+			ConfigReader.getInstance().setDataCurrentRow(currentRow);
+
+			WebElement elementFooter = Browser.driver.findElement(By.id("footer")); 
+			WebElement elemContent = Browser.driver.findElement(By.id("content"));
+			
+			Browser.driver.switchTo().frame(elementFooter);
+			
+			app.PG_03_Footer.clickNext();
+			
+			Browser.driver.switchTo().defaultContent();
+			
+
+			Browser.driver.switchTo().frame(elemContent);
+			
+			app.PG_02_Content.verifyText(app.PG_02_Content.getData().get(DataConstants.PG_02_Reading_Content)[currentRow]);
+			
+			Browser.driver.switchTo().defaultContent();
+			
+			//Clicking and verifying Introduction Overview
+			Browser.driver.switchTo().frame(elementFooter);
+			
+			app.PG_03_Footer.clickNext();
+			
+			Browser.driver.switchTo().defaultContent();
+			
+			Browser.driver.switchTo().frame(elemContent);
+			
+			app.PG_02_Content.verifyText(app.PG_02_Content.getData().get(DataConstants.PG_02_Overview_Content1)[currentRow]);
+			
+			app.PG_02_Content.verifyText(app.PG_02_Content.getData().get(DataConstants.PG_02_Overview_Content2)[currentRow]);
+
+			Browser.driver.switchTo().defaultContent();
+			
+			//Clicking and verifying Introduction Projects
+			
+			Browser.driver.switchTo().frame(elementFooter);
+			
+			app.PG_03_Footer.clickNext();
+			
+			Browser.driver.switchTo().defaultContent();
+			
+			Browser.driver.switchTo().frame(elemContent);
+			
+			app.PG_02_Content.verifyText(app.PG_02_Content.getData().get(DataConstants.PG_02_IntroProject_Content)[currentRow]);
+
+			Browser.driver.switchTo().defaultContent();
+
+			//Clicking and verifying Importance Projects
+			
+			Browser.driver.switchTo().frame(elementFooter);
+			
+			app.PG_03_Footer.clickNext();
+			
+			Browser.driver.switchTo().defaultContent();
+			
+			Browser.driver.switchTo().frame(elemContent);
+			
+			app.PG_02_Content.clickContentBox1();
+			
+			app.PG_02_Content.verifyText(app.PG_02_Content.getData().get(DataConstants.PG_02_Importance_Project_Uniformity_Content)[currentRow]);
+
+			app.PG_02_Content.clickContentBox2();
+			
+			app.PG_02_Content.verifyText(app.PG_02_Content.getData().get(DataConstants.PG_02_Importance_Project_Audience_Content)[currentRow]);
+
+			app.PG_02_Content.clickContentBox3();
+			
+			app.PG_02_Content.verifyText(app.PG_02_Content.getData().get(DataConstants.PG_02_Importance_Project_Backtracking_Content)[currentRow]);
+
+			app.PG_02_Content.clickContentBox4();
+			
+			app.PG_02_Content.verifyText(app.PG_02_Content.getData().get(DataConstants.PG_02_Importance_Project_Replacement_Content)[currentRow]);
+			
+			
+		}
+		Browser.quit();
 		
 	}
 	

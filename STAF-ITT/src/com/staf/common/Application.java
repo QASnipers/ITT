@@ -8,13 +8,12 @@ public class Application {
 	public Browser browser = new Browser();
 	public PG_01_LessonMenu PG_01_LessonMenu = new PG_01_LessonMenu();
 	public PG_02_Content PG_02_Content = new PG_02_Content();
-	//public PG_03_RentersAge PG_03_rentersage  = new PG_03_RentersAge() ;
+	public PG_03_Footer PG_03_Footer  = new PG_03_Footer() ;
 	
 	public Application() throws Exception {		
 		//ConfigReader.getInstance().readConfiguration();
-		String testDataFile = ConfigReader.getInstance().getTestDataFilesPath() +
-							  ConfigReader.getInstance().getTestCaseName()+".xls";
-		String sheetName = ConfigReader.getInstance().getEnvironment();
+		String testDataFile = ConfigReader.getInstance().getTestDataFilesPath();
+		String sheetName = ConfigReader.getInstance().getTestCaseName();
 		int rowCount = ExcelReader.getDataRowCount(testDataFile, sheetName);
 		  if(rowCount <= 0){
 			  System.out.println("No column names or data found in the data file. File Name: "+ testDataFile 
