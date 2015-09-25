@@ -8,6 +8,7 @@ import java.util.List;
 import org.apache.commons.io.FileUtils;
 import org.apache.log4j.Logger;
 import org.openqa.selenium.By;
+import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.NoSuchElementException;
 import org.openqa.selenium.OutputType;
 import org.openqa.selenium.TakesScreenshot;
@@ -22,6 +23,7 @@ import org.testng.annotations.BeforeClass;
 
 import com.relevantcodes.extentreports.ExtentReports;
 import com.relevantcodes.extentreports.ExtentTest;
+import com.staf.model.Actions;
 import com.staf.model.UIObject;
 import com.staf.reader.ConfigReader;
 
@@ -31,7 +33,10 @@ public class Browser {
 	public static WebDriverWait wait;
 	static Logger log=Logger.getLogger(Browser.class.getClass());
 	public static ExtentReports extent;
-	public static ExtentTest report; 
+	public static ExtentTest report;
+	
+	static JavascriptExecutor js = (JavascriptExecutor) driver;
+	//private static Actions act = new Actions();
 	
 	private static int i =0;
 	
@@ -164,6 +169,14 @@ public class Browser {
 	public static void switchToDefaultContent(){
 		driver.switchTo().defaultContent();
 		log.info("Switching to defautl Content");
+	}
+	
+	
+	public static void scrollView(UIObject obj){
+		WebElement ele = Actions.getElement(obj);
+		if(ele!=null){
+			js.executeScript("arguments[0].scrollIntoView();", ele);
+		}
 	}
 	
 }

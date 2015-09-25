@@ -142,7 +142,7 @@ public class Actions {
 	}
 	
 	//Returns an element
-	public static WebElement getEelement(UIObject obj){
+	public static WebElement getElement(UIObject obj){
 		
 		WebElement elements = null;
 		

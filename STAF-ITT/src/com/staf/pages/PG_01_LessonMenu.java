@@ -33,7 +33,7 @@ public class PG_01_LessonMenu extends Page{
 	}
 
 	public void switchToMenuFrame(){
-		WebElement element = Frame.getEelement(this.getPageObjectsMap().get(ObjectConstants.PG_01_Menu));
+		WebElement element = Frame.getElement(this.getPageObjectsMap().get(ObjectConstants.PG_01_Menu));
 		//System.out.println(element.getTagName());
 		Browser.switchToFrame(element);
 	}

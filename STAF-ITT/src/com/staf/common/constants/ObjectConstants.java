@@ -29,6 +29,12 @@ public interface ObjectConstants {
 	public String PG_02_ContentBox4 = "contentbox4";
 	public String PG_02_initiationphase = "initiationphase";
 	public String PG_02_planningphase = "planningphase";
+	public String PG_02_executionphase = "executionphase";
+	public String PG_02_closingphase = "closingphase";
+	public String PG_02_closepopup1 = "closepopup1";
+	public String PG_02_closepopup2 = "closepopup2";
+	public String PG_02_closepopup3 = "closepopup3";
+	public String PG_02_closepopup4 = "closepopup4";
 	public String PG_03_Next = "next";
 
 
