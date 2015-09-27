@@ -35,7 +35,7 @@ public class Browser {
 	public static ExtentReports extent;
 	public static ExtentTest report;
 	
-	static JavascriptExecutor js = (JavascriptExecutor) driver;
+	static JavascriptExecutor js;
 	//private static Actions act = new Actions();
 	
 	private static int i =0;
@@ -66,7 +66,7 @@ public class Browser {
 			driver = new InternetExplorerDriver();
 		}
 		driver.get(appurl);
-		
+		js = (JavascriptExecutor) driver;
 	}
 	//Maximize
 	public static void maximize(){
@@ -161,6 +161,8 @@ public class Browser {
 	
 
 	public static void switchToFrame(WebElement frame){
+		System.out.println(frame.getAttribute("id"));
+		log.info("Switching to frame: " + frame.getAttribute("id"));
 		driver.switchTo().frame(frame);
 //		System.out.println(frame.getAttribute("id"));
 		log.info("Switching to frame: " + frame.getAttribute("id"));

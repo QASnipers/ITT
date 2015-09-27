@@ -56,13 +56,13 @@ public class MainClass  {
 
 		WebElement elementMenu = Browser.driver.findElement(By.id("menu")); 
 		WebElement elemContent = Browser.driver.findElement(By.id("content"));
-		JavascriptExecutor js = (JavascriptExecutor) Browser.driver;
-		WebElement e = null;
 
 		ConfigReader.getInstance().setDataRowsCount(0);
 		
 		for(int currentRow=0; currentRow<=ConfigReader.getInstance().getDataRowsCount(); currentRow++){
 			ConfigReader.getInstance().setDataCurrentRow(currentRow);
+			
+			
 			//Clicking Reading and verifying content
 			Browser.driver.switchTo().frame(elementMenu);
 			app.PG_01_LessonMenu.clickReadings();
@@ -184,8 +184,6 @@ public class MainClass  {
  
 			//Clicking and verifying Frequently used Content
 			Browser.driver.switchTo().frame(elementMenu);
-			e = Actions.getElement(app.PG_01_LessonMenu.getPageObjectsMap().get(ObjectConstants.PG_01_FequentlyUsedViews));
-			js.executeScript("arguments[0].scrollIntoView();", e);
 			app.PG_01_LessonMenu.clickFrequentlyUsedViews();
 			Browser.driver.switchTo().defaultContent();
 			Browser.driver.switchTo().frame(elemContent);
@@ -194,8 +192,7 @@ public class MainClass  {
 			
 			//Clicking and verifying GantChart content
 			Browser.driver.switchTo().frame(elementMenu);
-			e = Actions.getElement(app.PG_01_LessonMenu.getPageObjectsMap().get(ObjectConstants.PG_01_GanttChart));
-			js.executeScript("arguments[0].scrollIntoView();", e);
+			Browser.scrollView(app.PG_01_LessonMenu.getPageObjectsMap().get(ObjectConstants.PG_01_GanttChart));
 			app.PG_01_LessonMenu.clickGantChart();
 			Browser.driver.switchTo().defaultContent();
 			Browser.driver.switchTo().frame(elemContent);
@@ -204,8 +201,6 @@ public class MainClass  {
 			
 			//Clicking and verifying Resource and cost sheet content
 			Browser.driver.switchTo().frame(elementMenu);
-			e = Actions.getElement(app.PG_01_LessonMenu.getPageObjectsMap().get(ObjectConstants.PG_01_ResourceAndCostSheet));
-			js.executeScript("arguments[0].scrollIntoView();", e);
 			app.PG_01_LessonMenu.clickResourceAndCostSheet();
 			Browser.driver.switchTo().defaultContent();
 			Browser.driver.switchTo().frame(elemContent);
@@ -214,8 +209,6 @@ public class MainClass  {
 
 			//Clicking and verifying Project Introduction content
 			Browser.driver.switchTo().frame(elementMenu);
-			e = Actions.getElement(app.PG_01_LessonMenu.getPageObjectsMap().get(ObjectConstants.PG_01_ProjectIntroduction));
-			js.executeScript("arguments[0].scrollIntoView();", e);
 			app.PG_01_LessonMenu.clickProjectIntroduction();
 			Browser.driver.switchTo().defaultContent();
 			Browser.driver.switchTo().frame(elemContent);
@@ -224,8 +217,6 @@ public class MainClass  {
 
 			//Clicking and verifying Summary content
 			Browser.driver.switchTo().frame(elementMenu);
-			e = Actions.getElement(app.PG_01_LessonMenu.getPageObjectsMap().get(ObjectConstants.PG_01_Summary));
-			js.executeScript("arguments[0].scrollIntoView();", e);
 			app.PG_01_LessonMenu.clickSummary();
 			Browser.driver.switchTo().defaultContent();
 			Browser.driver.switchTo().frame(elemContent);
@@ -236,7 +227,7 @@ public class MainClass  {
 		Browser.quit();
 	}
 	
-	@Test
+//	@Test
 	public void clickNextAndVerifyContent() throws Exception{
 		//ConfigReader.getInstance().readConfiguration();
 		Browser.report = extent.startTest("Navigation through bottom next", "Click bottom next Link and verify its content");
